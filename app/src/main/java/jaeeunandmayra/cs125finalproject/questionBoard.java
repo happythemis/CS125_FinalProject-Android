@@ -14,16 +14,16 @@ public class questionBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_board);
 
-        button = (Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openQuestionBoard();
-            }
-        });
+//        button = (Button) findViewById(R.id.button2);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openQuestionBoard();
+//            }
+//        });
     }
-    public void openQuestionBoard() {
-        Intent intent = new Intent(this, QuestionPage.class);
-        startActivity(intent);
-    }
+//    public void openQuestionBoard() {
+//        Intent intent = new Intent(this, QuestionPage.class);
+//        startActivity(intent);
+//    }
 }
