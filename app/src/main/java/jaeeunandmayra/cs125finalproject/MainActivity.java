@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent playHelp = new Intent(MainActivity.this, Help.class);
+                startActivity(playHelp);
             }
         });
 
