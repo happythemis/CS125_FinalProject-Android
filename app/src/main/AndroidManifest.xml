@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Help" />
         <activity android:name=".Board" />
-        <activity android:name=".Question"></activity>
+        <activity android:name=".Question" />
+        <activity android:name=".Answer"></activity>
     </application>
 
 </manifest>
