@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     public void onClick(View v){
         if (v.getId() == R.id.button3) {
-            Intent goStart = new Intent(MainActivity.this, questionBoard.class);
+            Intent goStart = new Intent(MainActivity.this, Board.class);
             startActivity(goStart);
         } else if (v.getId() == R.id.button4) {
             Intent goHelp = new Intent(MainActivity.this, Help.class);

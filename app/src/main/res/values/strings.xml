@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">CS125FinalProject</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="help">help</string>
     <string name="startButton">start</string>
     <string name="jeopardy">Jeopardy</string>
