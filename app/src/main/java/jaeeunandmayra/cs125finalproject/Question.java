@@ -49,7 +49,7 @@ public class Question extends AppCompatActivity {
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+       // RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
