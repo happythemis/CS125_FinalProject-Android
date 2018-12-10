@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Question">
+    tools:context=".QuestionMedium">
 
     <Button
-        android:id="@+id/button25"
+        android:id="@+id/buttonMed25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.785" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/buttonMed20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.646" />
 
     <Button
-        android:id="@+id/button21"
+        android:id="@+id/buttonMed21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.646" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/buttonMed22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.785" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/buttonMed23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.959" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewMed6"
         android:layout_width="wrap_content"
         android:layout_height="15dp"
         android:layout_marginStart="8dp"
