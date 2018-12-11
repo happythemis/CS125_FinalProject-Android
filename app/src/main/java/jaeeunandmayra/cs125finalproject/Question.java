@@ -101,20 +101,21 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     JSONArray arr = response.getJSONArray("results");
                     JSONObject obj = arr.getJSONObject(0);
                     String questionWOEdit = obj.getString("question");
-                    String questionApt1 = questionWOEdit.replaceAll("&rsquo;", "'");
-                    String questionApt2 = questionApt1.replaceAll("&#039;", "'");
-                    String questionQuote = questionApt2.replaceAll("&quot;", "'");
-                    String questionAnd = questionQuote.replaceAll("&amp", "&");
-                    String questionE= questionAnd.replaceAll("&eacute;", "é");
-                    viewQuestion.setText(questionE);
+//                    String questionApt1 = questionWOEdit.replaceAll("&rsquo;", "'");
+//                    String questionApt2 = questionApt1.replaceAll("&#039;", "'");
+//                    String questionQuote = questionApt2.replaceAll("&quot;", "'");
+//                    String questionAnd = questionQuote.replaceAll("&amp", "&");
+//                    String questionE= questionAnd.replaceAll("&eacute;", "é");
+                    viewQuestion.setText(editString(questionWOEdit));
 
                     String answerWOEdit = obj.getString("correct_answer");
-                    String answerApt1 = answerWOEdit.replaceAll("&rsquo;", "'");
-                    String answerApt2 = answerApt1.replaceAll("&#039;", "'");
-                    String answerQuote = answerApt2.replaceAll("&quot;", "'");
-                    String answerE= answerQuote.replaceAll("&eacute;", "é");
-                    correctAnswer = answerE.replaceAll("&amp", "&");
-                    answerArray[0] = correctAnswer;
+//                    String answerApt1 = answerWOEdit.replaceAll("&rsquo;", "'");
+//                    String answerApt2 = answerApt1.replaceAll("&#039;", "'");
+//                    String answerQuote = answerApt2.replaceAll("&quot;", "'");
+//                    String answerE= answerQuote.replaceAll("&eacute;", "é");
+//                    correctAnswer = answerE.replaceAll("&amp", "&");
+                    correctAnswer = editString(answerWOEdit);
+                    answerArray[0] = editString(answerWOEdit);
 
                     JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
                     for (int i = 0; i < incorrectAnswers.length(); i++) {
@@ -122,7 +123,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     }
                     List<String> listOfAnswer = new LinkedList<>();
                     for (int i = 0; i < answerArray.length; i++) {
-                        listOfAnswer.add(answerArray[i]);
+                        listOfAnswer.add(editString(answerArray[i]));
                     }
                     List<Integer> listofNum = new LinkedList<>();
                     int cnt = 0;
@@ -174,4 +175,19 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         option3.setOnClickListener(this);
         option4.setOnClickListener(this);
     }
+
+    public String editString(String s) {
+        String a = s.replaceAll("&rsquo;", "'");
+        String b = a.replaceAll("&#039;", "'");
+        String c = b.replaceAll("&quot;", "'");
+        String d= c.replaceAll("&eacute;", "é");
+        String e = d.replaceAll("&amp", "&");
+
+        return e;
+
+    }
+
+
+
 }
+

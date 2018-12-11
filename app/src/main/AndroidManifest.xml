@@ -30,7 +30,7 @@
         <activity android:name=".AnswerMedium" />
         <activity android:name=".AnswerHard" />
         <activity android:name=".QuestionInterm" />
-        <activity android:name=".AnswerInterm"></activity>
+        <activity android:name=".AnswerInterm" />
     </application>
 
 </manifest>
