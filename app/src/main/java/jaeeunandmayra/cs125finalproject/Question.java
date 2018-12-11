@@ -56,7 +56,7 @@ public class Question extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        //goBackBoard();
+        goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6);
         option1 = (Button)findViewById(R.id.button20);
@@ -71,7 +71,7 @@ public class Question extends AppCompatActivity {
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
-       // RequestQueue requestQueue = Volley.newRequestQueue(this);
+        // RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override

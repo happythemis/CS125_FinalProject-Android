@@ -19,11 +19,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class QuestionMedium2 extends AppCompatActivity {
 
 
     Button buttonGoMain;
+    Button option1, option2, option3, option4;
     TextView viewQuestion;
+    String[] answerArray = new String[4];
     public void goBackBoard() {
         buttonGoMain = findViewById(R.id.button23med);
         buttonGoMain.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +50,11 @@ public class QuestionMedium2 extends AppCompatActivity {
 
         viewQuestion = findViewById(R.id.textView6med);
 
+        option1 = (Button)findViewById(R.id.button20med);
+        option2 = (Button)findViewById(R.id.button21med);
+        option3 = (Button)findViewById(R.id.button22med);
+        option4 = (Button)findViewById(R.id.button25med);
+
 
 
 
@@ -60,14 +70,46 @@ public class QuestionMedium2 extends AppCompatActivity {
                     //JSONObject main = response.getJSONObject("question");
                     JSONArray arr = response.getJSONArray("results");
                     JSONObject obj = arr.getJSONObject(0);
-                    String question = obj.getString("question");
+                    String questionWOEdit = obj.getString("question");
+                    String questionApt1 = questionWOEdit.replaceAll("&rsquo;", "'");
+                    String questionApt2 = questionApt1.replaceAll("&#039;", "'");
+                    String questionQuote = questionApt2.replaceAll("&quot;", "'");
+                    String questionAnd = questionQuote.replaceAll("&amp", "&");
 
-                    viewQuestion.setText(question);
 
 
+                    viewQuestion.setText(questionAnd);
 
+                    String correctAnswer = obj.getString("correct_answer");
+                    answerArray[0] = correctAnswer;
 
+                    JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
+                    for (int i = 0; i < incorrectAnswers.length(); i++) {
+                        answerArray[i + 1] = incorrectAnswers.getString(i);
+                    }
+                    List<String> listOfAnswer = new LinkedList<>();
+                    for (int i = 0; i < answerArray.length; i++) {
+                        listOfAnswer.add(answerArray[i]);
+                    }
+                    List<Integer> listofNum = new LinkedList<>();
+                    int cnt = 0;
 
+                    int randomize = (int) (Math.random() * listOfAnswer.size());
+                    listofNum.add(randomize);
+                    cnt++;
+
+                    while (cnt < 4) {
+                        randomize = (int) (Math.random() * listOfAnswer.size());
+                        if (!listofNum.contains(randomize)) {
+                            listofNum.add(randomize);
+                            cnt++;
+                        }
+                    }
+
+                    option1.setText(answerArray[listofNum.get(0)]);
+                    option2.setText(answerArray[listofNum.get(1)]);
+                    option3.setText(answerArray[listofNum.get(2)]);
+                    option4.setText(answerArray[listofNum.get(3)]);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
