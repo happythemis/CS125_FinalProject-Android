@@ -10,15 +10,21 @@ import android.widget.TextView;
 public class AnswerHard extends AppCompatActivity {
 
 
-    TextView viewAnswerHard;
+    TextView viewAnswerHard, viewScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer_hard);
         viewAnswerHard = findViewById(R.id.textView5);
+        viewScore = findViewById(R.id.textView8);
+
 
         String answer = QuestionHard.correctAnswer;
         viewAnswerHard.setText(answer);
+
+
+        String currScore = Integer.toString(Board.score);
+        viewScore.setText(currScore);
         goBackBoard();
 
 

@@ -28,7 +28,8 @@
         <activity android:name=".linkedBoard" />
         <activity android:name=".LinkedQuestion" />
         <activity android:name=".AnswerMedium" />
-        <activity android:name=".AnswerHard"></activity>
+        <activity android:name=".AnswerHard" />
+        <activity android:name=".QuestionInterm"></activity>
     </application>
 
 </manifest>

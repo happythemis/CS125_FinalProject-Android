@@ -19,77 +19,52 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Question extends AppCompatActivity implements View.OnClickListener {
-
+public class QuestionInterm extends AppCompatActivity implements View.OnClickListener {
     Button buttonGoBoard;
     Button option1, option2, option3, option4;
     TextView viewQuestion;
     static String correctAnswer;
     String[] answerArray = new String[4];
-//    public void goBackBoard() {
-//        buttonGoBoard = findViewById(R.id.button23);
-//        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent goBack = new Intent(Question.this, Board.class);
-//                startActivity(goBack);
-//            }
-//        });
-//
-//
-//    }
 
-    public void onClick(View v){
-        if (v.getId() == R.id.button23) {
-            Intent goBackBoard = new Intent(Question.this, Board.class);
+    public void onClick(View v) {
+        if (v.getId() == R.id.buttonMed23) {
+            Intent goBackBoard = new Intent(QuestionInterm.this, Board.class);
             startActivity(goBackBoard);
-        } else if (v.getId() == R.id.button20) {
-            if (option1.getText().equals(correctAnswer)) {
-                Board.score += 100;
-            }
-            Intent goQuestion = new Intent(Question.this, Answer.class);
-            startActivity(goQuestion);
-        } else if (v.getId() == R.id.button21) {
-            if (option2.getText().equals(correctAnswer)) {
-                Board.score += 100;
-            }
-            Intent goQuestion = new Intent(Question.this, Answer.class);
-            startActivity(goQuestion);
-        } else if (v.getId() == R.id.button22) {
-            if (option3.getText().equals(correctAnswer)) {
-                Board.score += 100;
-            }
-            Intent goQuestion = new Intent(Question.this, Answer.class);
-            startActivity(goQuestion);
-        } else if (v.getId() == R.id.button25) {
-            if (option4.getText().equals(correctAnswer)) {
-                Board.score += 100;
-            }
-            Intent goQuestion = new Intent(Question.this, Answer.class);
-            startActivity(goQuestion);
+        } else if (v.getId() == R.id.buttonMed20) {
+            Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed21) {
+            Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed22) {
+            Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed25) {
+            Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
+            startActivity(goBackBoard);
         }
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
-       // goBackBoard();
-
-        viewQuestion = findViewById(R.id.textView6);
-        buttonGoBoard = (Button)findViewById(R.id.button23);
-        option1 = (Button)findViewById(R.id.button20);
-        option2 = (Button)findViewById(R.id.button21);
-        option3 = (Button)findViewById(R.id.button22);
-        option4 = (Button)findViewById(R.id.button25);
+        setContentView(R.layout.activity_question_interm);
+        viewQuestion = findViewById(R.id.textViewMed6);
+        buttonGoBoard = (Button)findViewById(R.id.buttonMed23);
+        option1 = (Button)findViewById(R.id.buttonMed20);
+        option2 = (Button)findViewById(R.id.buttonMed21);
+        option3 = (Button)findViewById(R.id.buttonMed22);
+        option4 = (Button)findViewById(R.id.buttonMed25);
 
 
 
-        String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
+
+
+        String URL = "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
 
         // RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
@@ -106,6 +81,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     String questionQuote = questionApt2.replaceAll("&quot;", "'");
                     String questionAnd = questionQuote.replaceAll("&amp", "&");
                     viewQuestion.setText(questionAnd);
+
 
                     String answerWOEdit = obj.getString("correct_answer");
                     String answerApt1 = answerWOEdit.replaceAll("&rsquo;", "'");
@@ -156,14 +132,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         }
         );
 
-
-
-
-
-
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
-
         queue.add(objectRequest);
 
         buttonGoBoard.setOnClickListener(this);

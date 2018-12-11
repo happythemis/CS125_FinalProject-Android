@@ -43,17 +43,32 @@ public class QuestionHard extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v){
         if (v.getId() == R.id.buttonhard23) {
             Intent goBackBoard = new Intent(QuestionHard.this, Board.class);
+            if (option1.getText().equals(correctAnswer)) {
+                Board.score += 400;
+            }
             startActivity(goBackBoard);
         } else if (v.getId() == R.id.buttonhard20) {
+            if (option1.getText().equals(correctAnswer)) {
+                Board.score += 400;
+            }
             Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
             startActivity(goQuestion);
         } else if (v.getId() == R.id.buttonhard21) {
+            if (option2.getText().equals(correctAnswer)) {
+                Board.score += 400;
+            }
             Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
             startActivity(goQuestion);
         } else if (v.getId() == R.id.buttonhard22) {
+            if (option3.getText().equals(correctAnswer)) {
+                Board.score += 400;
+            }
             Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
             startActivity(goQuestion);
         } else if (v.getId() == R.id.buttonhard25) {
+            if (option4.getText().equals(correctAnswer)) {
+                Board.score += 400;
+            }
             Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
             startActivity(goQuestion);
         }
@@ -94,12 +109,14 @@ public class QuestionHard extends AppCompatActivity implements View.OnClickListe
                     String questionApt2 = questionApt1.replaceAll("&#039;", "'");
                     String questionQuote = questionApt2.replaceAll("&quot;", "'");
                     String questionAnd = questionQuote.replaceAll("&amp", "&");
-
-
-
                     viewQuestionHard.setText(questionAnd);
 
-                    correctAnswer = obj.getString("correct_answer");
+
+                    String answerWOEdit = obj.getString("correct_answer");
+                    String answerApt1 = answerWOEdit.replaceAll("&rsquo;", "'");
+                    String answerApt2 = answerApt1.replaceAll("&#039;", "'");
+                    String answerQuote = answerApt2.replaceAll("&quot;", "'");
+                    correctAnswer = answerQuote.replaceAll("&amp", "&");
                     answerArray[0] = correctAnswer;
 
                     JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");

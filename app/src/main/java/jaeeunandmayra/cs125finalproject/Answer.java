@@ -21,15 +21,21 @@ import org.json.JSONObject;
 
 public class Answer extends AppCompatActivity {
 
-    TextView viewAnswer;
+    TextView viewAnswer, viewScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
         viewAnswer = findViewById(R.id.textView5);
+        viewScore = findViewById(R.id.textView8);
+
 
         String answer = Question.correctAnswer;
         viewAnswer.setText(answer);
+
+        String currScore = Integer.toString(Board.score);
+        viewScore.setText(currScore);
+
         goBackBoard();
 
 

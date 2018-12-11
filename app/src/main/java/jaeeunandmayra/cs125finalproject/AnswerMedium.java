@@ -9,15 +9,20 @@ import android.widget.TextView;
 
 public class AnswerMedium extends AppCompatActivity {
 
-    TextView viewAnswer;
+    TextView viewAnswerMed, viewScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer_medium);
-        viewAnswer = findViewById(R.id.textView5);
+        viewAnswerMed = findViewById(R.id.textView5);
+        viewScore = findViewById(R.id.textView8);
 
         String answer = QuestionHard.correctAnswer;
-        viewAnswer.setText(answer);
+        viewAnswerMed.setText(answer);
+
+
+        String currScore = Integer.toString(Board.score);
+        viewScore.setText(currScore);
         goBackBoard();
 
 

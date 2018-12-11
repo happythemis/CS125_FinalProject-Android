@@ -23,7 +23,7 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
             Intent goQuestionHard = new Intent(Board.this, QuestionHard.class);
             startActivity(goQuestionHard);
         } else if (v.getId() == R.id.button8 || v.getId() == R.id.button9 || v.getId() == R.id.button10 || v.getId() == R.id.button11){
-            Intent goQuestionMed2 = new Intent(Board.this, QuestionMedium.class);
+            Intent goQuestionMed2 = new Intent(Board.this, QuestionInterm.class);
             startActivity(goQuestionMed2);
         } else if (v.getId() == R.id.button12 || v.getId() == R.id.button13 || v.getId() == R.id.button14 || v.getId() == R.id.button15) {
             Intent goQuestionMed = new Intent(Board.this, QuestionMedium.class);
