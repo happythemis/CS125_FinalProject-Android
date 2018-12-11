@@ -3,39 +3,28 @@ package jaeeunandmayra.cs125finalproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+public class AnswerHard extends AppCompatActivity {
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-public class Answer extends AppCompatActivity {
-
-    TextView viewAnswer, viewScore;
+    TextView viewAnswerHard, viewScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer);
-        viewAnswer = findViewById(R.id.textView5);
+        setContentView(R.layout.activity_answer_hard);
+        viewAnswerHard = findViewById(R.id.textView5);
         viewScore = findViewById(R.id.textView8);
 
 
-        String answer = Question.correctAnswer;
-        viewAnswer.setText(answer);
+        String answer = QuestionHard.correctAnswer;
+        viewAnswerHard.setText(answer);
+
 
         String currScore = Integer.toString(Board.score);
         viewScore.setText(currScore);
-
         goBackBoard();
 
 
@@ -47,7 +36,7 @@ public class Answer extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goBack = new Intent(Answer.this, Board.class);
+                Intent goBack = new Intent(AnswerHard.this, Board.class);
                 startActivity(goBack);
             }
         });

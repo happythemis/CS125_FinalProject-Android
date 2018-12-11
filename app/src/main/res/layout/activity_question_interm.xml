@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionMedium2">
+    tools:context=".QuestionInterm">
 
     <Button
-        android:id="@+id/button25med"
+        android:id="@+id/buttonMed25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,10 +21,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.816" />
 
     <Button
-        android:id="@+id/button20med"
+        android:id="@+id/buttonMed20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -38,10 +38,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <Button
-        android:id="@+id/button21med"
+        android:id="@+id/buttonMed21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -55,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
+        app:layout_constraintVertical_bias="0.554" />
 
     <Button
-        android:id="@+id/button22med"
+        android:id="@+id/buttonMed22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -72,10 +72,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624" />
+        app:layout_constraintVertical_bias="0.677" />
 
     <Button
-        android:id="@+id/button23med"
+        android:id="@+id/buttonMed23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -92,21 +92,21 @@
         app:layout_constraintVertical_bias="0.959" />
 
     <TextView
-        android:id="@+id/textView6med"
+        android:id="@+id/textViewMed6"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="368dp"
+        android:inputType="textMultiLine"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintVertical_bias="0.533" />
 
 </android.support.constraint.ConstraintLayout>

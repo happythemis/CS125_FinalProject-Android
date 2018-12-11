@@ -31,42 +31,54 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     TextView viewQuestion;
     static String correctAnswer;
     String[] answerArray = new String[4];
-    public void goBackBoard() {
-        buttonGoBoard = findViewById(R.id.button23);
-        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goBack = new Intent(Question.this, Board.class);
-                startActivity(goBack);
-            }
-        });
-
-
-    }
+//    public void goBackBoard() {
+//        buttonGoBoard = findViewById(R.id.button23);
+//        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goBack = new Intent(Question.this, Board.class);
+//                startActivity(goBack);
+//            }
+//        });
+//
+//
+//    }
 
     public void onClick(View v){
         if (v.getId() == R.id.button23) {
             Intent goBackBoard = new Intent(Question.this, Board.class);
             startActivity(goBackBoard);
         } else if (v.getId() == R.id.button20) {
+            if (option1.getText().equals(correctAnswer)) {
+                Board.score += 100;
+            }
             Intent goQuestion = new Intent(Question.this, Answer.class);
             if (option1.getText().equals(answerArray[0])) {
                 right = true;
             }
             startActivity(goQuestion);
         } else if (v.getId() == R.id.button21) {
+            if (option2.getText().equals(correctAnswer)) {
+                Board.score += 100;
+            }
             Intent goQuestion = new Intent(Question.this, Answer.class);
             if (option1.getText().equals(answerArray[0])) {
                 right = true;
             }
             startActivity(goQuestion);
         } else if (v.getId() == R.id.button22) {
+            if (option3.getText().equals(correctAnswer)) {
+                Board.score += 100;
+            }
             Intent goQuestion = new Intent(Question.this, Answer.class);
             if (option1.getText().equals(answerArray[0])) {
                 right = true;
             }
             startActivity(goQuestion);
         } else if (v.getId() == R.id.button25) {
+            if (option4.getText().equals(correctAnswer)) {
+                Board.score += 100;
+            }
             Intent goQuestion = new Intent(Question.this, Answer.class);
             if (option1.getText().equals(answerArray[0])) {
                 right = true;
@@ -79,7 +91,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        goBackBoard();
+       // goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6);
         buttonGoBoard = (Button)findViewById(R.id.button23);
@@ -110,12 +122,15 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     String questionApt2 = questionApt1.replaceAll("&#039;", "'");
                     String questionQuote = questionApt2.replaceAll("&quot;", "'");
                     String questionAnd = questionQuote.replaceAll("&amp", "&");
+                    String questionE= questionAnd.replaceAll("&eacute;", "é");
+                    viewQuestion.setText(questionE);
 
-
-
-                    viewQuestion.setText(questionAnd);
-
-                    correctAnswer = obj.getString("correct_answer");
+                    String answerWOEdit = obj.getString("correct_answer");
+                    String answerApt1 = answerWOEdit.replaceAll("&rsquo;", "'");
+                    String answerApt2 = answerApt1.replaceAll("&#039;", "'");
+                    String answerQuote = answerApt2.replaceAll("&quot;", "'");
+                    String answerE= answerQuote.replaceAll("&eacute;", "é");
+                    correctAnswer = answerE.replaceAll("&amp", "&");
                     answerArray[0] = correctAnswer;
 
                     JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
