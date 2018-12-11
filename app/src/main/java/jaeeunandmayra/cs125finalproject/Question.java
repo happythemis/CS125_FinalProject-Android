@@ -19,13 +19,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Question extends AppCompatActivity {
 
-    Button buttonGoMain;
+    Button buttonGoBoard;
+    Button option1, option2, option3, option4;
     TextView viewQuestion;
+    String[] answerArray = new String[4];
     public void goBackBoard() {
-        buttonGoMain = findViewById(R.id.button23);
-        buttonGoMain.setOnClickListener(new View.OnClickListener() {
+        buttonGoBoard = findViewById(R.id.button23);
+        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goBack = new Intent(Question.this, Board.class);
@@ -35,6 +40,17 @@ public class Question extends AppCompatActivity {
 
 
     }
+
+    public void onClick(View v){
+        if (v.getId() == R.id.button23) {
+            Intent goBack = new Intent(Question.this, MainActivity.class);
+            startActivity(goBack);
+        } else if (v.getId() == R.id.button2 || v.getId() == R.id.button5 || v.getId() == R.id.button6 || v.getId() == R.id.button7) {
+            Intent goQuestionHard = new Intent(Question.this, QuestionHard.class);
+            startActivity(goQuestionHard);
+        }
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +58,10 @@ public class Question extends AppCompatActivity {
         goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6);
-
-
-
-
+        option1 = (Button)findViewById(R.id.button20);
+        option2 = (Button)findViewById(R.id.button21);
+        option3 = (Button)findViewById(R.id.button22);
+        option4 = (Button)findViewById(R.id.button25);
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
@@ -58,9 +74,55 @@ public class Question extends AppCompatActivity {
                     //JSONObject main = response.getJSONObject("question");
                     JSONArray arr = response.getJSONArray("results");
                     JSONObject obj = arr.getJSONObject(0);
-                    String question = obj.getString("question");
+                    String questionWOEdit = obj.getString("question");
+                    String questionApt1 = questionWOEdit.replaceAll("&rsquo;", "'");
+                    String questionApt2 = questionApt1.replaceAll("&#039;", "'");
+                    String questionQuote = questionApt2.replaceAll("&quot;", "'");
+                    String questionAnd = questionQuote.replaceAll("&amp", "&");
 
-                    viewQuestion.setText(question);
+
+
+                    viewQuestion.setText(questionAnd);
+
+                    String correctAnswer = obj.getString("correct_answer");
+                    answerArray[0] = correctAnswer;
+
+                    JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
+                    for (int i = 0; i < incorrectAnswers.length(); i++) {
+                        answerArray[i + 1] = incorrectAnswers.getString(i);
+                    }
+//                    List<String> listOfAnswer = new LinkedList<>();
+//                    for (int i = 0; i < answerArray.length; i++) {
+//                        listOfAnswer.add(answerArray[i]);
+//                    }
+//
+//
+//                    int a;
+//
+//                    int randomize = (int) (Math.random() * (listOfAnswer.size() - 1) + 1;
+//                    while (randomize != 0) {
+//
+//                        randomize = (int) (Math.random() * listOfAnswer.size());
+//
+//                    }
+//
+//                    // while ()
+
+
+
+
+                    option1.setText(answerArray[0]);
+                    option2.setText(answerArray[1]);
+                    option3.setText(answerArray[2]);
+                    option4.setText(answerArray[3]);
+
+
+
+
+
+
+
+
 
 
 
@@ -80,6 +142,12 @@ public class Question extends AppCompatActivity {
             }
         }
         );
+
+//
+//        option1.setOnClickListener(this);
+//        option2.setOnClickListener(this);
+//        option3.setOnClickListener(this);
+//        option4.setOnClickListener(this);
 
 
         //requestQueue.add(objectRequest);
