@@ -1,8 +1,11 @@
 package jaeeunandmayra.cs125finalproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -29,48 +32,22 @@ public class Answer extends AppCompatActivity {
 
         String answer = Question.correctAnswer;
         viewAnswer.setText(answer);
+        goBackBoard();
 
 
+    }
+
+    public Button button1;
+    public void goBackBoard() {
+        button1 = findViewById(R.id.button25);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goBack = new Intent(Answer.this, Board.class);
+                startActivity(goBack);
+            }
+        });
 
 
-
-//        String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
-
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        JsonObjectRequest objectRequest = new JsonObjectRequest(
-//                Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                try {
-//                    //JSONObject main = response.getJSONObject("question");
-//                    JSONArray arr = response.getJSONArray("results");
-//                    JSONObject obj = arr.getJSONObject(0);
-//                    String answer = obj.getString("correct_answer");
-//
-//                    viewAnswer.setText(answer);
-//
-//
-//
-//
-//
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                Log.e("Rest Response", response.toString());
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.e("Rest Response", error.toString());
-//            }
-//        }
-//        );
-//
-//
-//        //requestQueue.add(objectRequest);
-//        RequestQueue queue = Volley.newRequestQueue(this);
-//        queue.add(objectRequest);
     }
 }

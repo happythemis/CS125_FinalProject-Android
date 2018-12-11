@@ -22,30 +22,53 @@ import org.json.JSONObject;
 import java.util.LinkedList;
 import java.util.List;
 
-public class QuestionHard extends AppCompatActivity {
+public class QuestionHard extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonGoMain;
+    Button buttonGoBoard;
     Button option1, option2, option3, option4;
     TextView viewQuestionHard;
+    static String correctAnswer;
     String[] answerArray = new String[4];
-    public void goBackBoard() {
-        buttonGoMain = findViewById(R.id.buttonhard23);
-        buttonGoMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goBack = new Intent(QuestionHard.this, Board.class);
-                startActivity(goBack);
-            }
-        });
+//    public void goBackBoard() {
+//        buttonGoMain = findViewById(R.id.buttonhard23);
+//        buttonGoMain.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goBack = new Intent(QuestionHard.this, Board.class);
+//                startActivity(goBack);
+//            }
+//        });
+//    }
+
+    public void onClick(View v){
+        if (v.getId() == R.id.buttonhard23) {
+            Intent goBackBoard = new Intent(QuestionHard.this, Board.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonhard20) {
+            Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
+            startActivity(goQuestion);
+        } else if (v.getId() == R.id.buttonhard21) {
+            Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
+            startActivity(goQuestion);
+        } else if (v.getId() == R.id.buttonhard22) {
+            Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
+            startActivity(goQuestion);
+        } else if (v.getId() == R.id.buttonhard25) {
+            Intent goQuestion = new Intent(QuestionHard.this, AnswerHard.class);
+            startActivity(goQuestion);
+        }
+
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_hard);
-        goBackBoard();
+        //goBackBoard();
 
         viewQuestionHard = findViewById(R.id.textViewhard6);
+        buttonGoBoard = (Button)findViewById(R.id.buttonhard23);
         option1 = (Button)findViewById(R.id.buttonhard20);
         option2 = (Button)findViewById(R.id.buttonhard21);
         option3 = (Button)findViewById(R.id.buttonhard22);
@@ -76,7 +99,7 @@ public class QuestionHard extends AppCompatActivity {
 
                     viewQuestionHard.setText(questionAnd);
 
-                    String correctAnswer = obj.getString("correct_answer");
+                    correctAnswer = obj.getString("correct_answer");
                     answerArray[0] = correctAnswer;
 
                     JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
@@ -124,6 +147,12 @@ public class QuestionHard extends AppCompatActivity {
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(objectRequest);
+
+        buttonGoBoard.setOnClickListener(this);
+        option1.setOnClickListener(this);
+        option2.setOnClickListener(this);
+        option3.setOnClickListener(this);
+        option4.setOnClickListener(this);
     }
 
 }

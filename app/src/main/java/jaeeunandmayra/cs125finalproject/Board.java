@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class Board extends AppCompatActivity implements View.OnClickListener {
 
+
+
     public Button buttonGoback;
     public Button buttonGoQuestion2, buttonGoQuestion5, buttonGoQuestion6, buttonGoQuestion7, buttonGoQuestion8,
             buttonGoQuestion9, buttonGoQuestion10, buttonGoQuestion11, buttonGoQuestion12, buttonGoQuestion13, buttonGoQuestion14,

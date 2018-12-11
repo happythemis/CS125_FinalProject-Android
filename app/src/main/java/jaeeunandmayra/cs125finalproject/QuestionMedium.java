@@ -22,35 +22,54 @@ import org.json.JSONObject;
 import java.util.LinkedList;
 import java.util.List;
 
-public class QuestionMedium extends AppCompatActivity {
+public class QuestionMedium extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonGoMain;
+    Button buttonGoBoard;
     Button option1, option2, option3, option4;
-    TextView viewQuestionMed;
+    TextView viewQuestion;
+    static String correctAnswer;
     String[] answerArray = new String[4];
-    public void goBackBoard() {
-        buttonGoMain = findViewById(R.id.buttonMed23);
-        buttonGoMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goBack = new Intent(QuestionMedium.this, Board.class);
-                startActivity(goBack);
-            }
-        });
-
+//    public void goBackBoard() {
+//        buttonGoBoard = findViewById(R.id.buttonMed23);
+//        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goBack = new Intent(QuestionMedium.this, Board.class);
+//                startActivity(goBack);
+//            }
+//        });
+//
+//
+//    }
+    public void onClick(View v) {
+        if (v.getId() == R.id.buttonMed23) {
+            Intent goBackBoard = new Intent(QuestionMedium.this, Board.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed20) {
+            Intent goBackBoard = new Intent(QuestionMedium.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed21) {
+            Intent goBackBoard = new Intent(QuestionMedium.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed22) {
+            Intent goBackBoard = new Intent(QuestionMedium.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        } else if (v.getId() == R.id.buttonMed25) {
+            Intent goBackBoard = new Intent(QuestionMedium.this, AnswerMedium.class);
+            startActivity(goBackBoard);
+        }
 
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_medium);
+        //goBackBoard();
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
-        goBackBoard();
-
-        viewQuestionMed = findViewById(R.id.textViewMed6);
+        viewQuestion = findViewById(R.id.textViewMed6);
+        buttonGoBoard = (Button)findViewById(R.id.buttonMed23);
         option1 = (Button)findViewById(R.id.buttonMed20);
         option2 = (Button)findViewById(R.id.buttonMed21);
         option3 = (Button)findViewById(R.id.buttonMed22);
@@ -79,9 +98,9 @@ public class QuestionMedium extends AppCompatActivity {
 
 
 
-                    viewQuestionMed.setText(questionAnd);
+                    viewQuestion.setText(questionAnd);
 
-                    String correctAnswer = obj.getString("correct_answer");
+                    correctAnswer = obj.getString("correct_answer");
                     answerArray[0] = correctAnswer;
 
                     JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
@@ -129,5 +148,11 @@ public class QuestionMedium extends AppCompatActivity {
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(objectRequest);
+
+        buttonGoBoard.setOnClickListener(this);
+        option1.setOnClickListener(this);
+        option2.setOnClickListener(this);
+        option3.setOnClickListener(this);
+        option4.setOnClickListener(this);
     }
 }

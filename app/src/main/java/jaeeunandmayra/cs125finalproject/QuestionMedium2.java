@@ -25,13 +25,13 @@ import java.util.List;
 public class QuestionMedium2 extends AppCompatActivity {
 
 
-    Button buttonGoMain;
+    Button buttonGoBoard;
     Button option1, option2, option3, option4;
     TextView viewQuestion;
     String[] answerArray = new String[4];
     public void goBackBoard() {
-        buttonGoMain = findViewById(R.id.button23med);
-        buttonGoMain.setOnClickListener(new View.OnClickListener() {
+        buttonGoBoard = findViewById(R.id.button23med);
+        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goBack = new Intent(QuestionMedium2.this, Board.class);
@@ -42,6 +42,26 @@ public class QuestionMedium2 extends AppCompatActivity {
 
     }
 
+//    public void onClick(View v){
+//        if (v.getId() == R.id.button23med) {
+//            Intent goBackBoard = new Intent(QuestionMedium2.this, Board.class);
+//            startActivity(goBackBoard);
+//        } else if (v.getId() == R.id.button20med) {
+//            Intent goQuestion = new Intent(QuestionMedium2.this, Answer.class);
+//            startActivity(goQuestion);
+//        } else if (v.getId() == R.id.button21med) {
+//            Intent goQuestion = new Intent(QuestionMedium2.this, Answer.class);
+//            startActivity(goQuestion);
+//        } else if (v.getId() == R.id.button22med) {
+//            Intent goQuestion = new Intent(QuestionMedium2.this, Answer.class);
+//            startActivity(goQuestion);
+//        } else if (v.getId() == R.id.buttonMed25) {
+//            Intent goQuestion = new Intent(QuestionMedium2.this, Answer.class);
+//            startActivity(goQuestion);
+//        }
+//
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +69,7 @@ public class QuestionMedium2 extends AppCompatActivity {
         goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6med);
-
+        buttonGoBoard = (Button)findViewById(R.id.buttonMed23);
         option1 = (Button)findViewById(R.id.button20med);
         option2 = (Button)findViewById(R.id.button21med);
         option3 = (Button)findViewById(R.id.button22med);
@@ -129,6 +149,12 @@ public class QuestionMedium2 extends AppCompatActivity {
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(objectRequest);
+
+//        buttonGoBoard.setOnClickListener(this);
+//        option1.setOnClickListener(this);
+//        option2.setOnClickListener(this);
+//        option3.setOnClickListener(this);
+//        option4.setOnClickListener(this);
     }
 
 }

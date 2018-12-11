@@ -30,18 +30,18 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     TextView viewQuestion;
     static String correctAnswer;
     String[] answerArray = new String[4];
-    public void goBackBoard() {
-        buttonGoBoard = findViewById(R.id.button23);
-        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goBack = new Intent(Question.this, Board.class);
-                startActivity(goBack);
-            }
-        });
-
-
-    }
+//    public void goBackBoard() {
+//        buttonGoBoard = findViewById(R.id.button23);
+//        buttonGoBoard.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goBack = new Intent(Question.this, Board.class);
+//                startActivity(goBack);
+//            }
+//        });
+//
+//
+//    }
 
     public void onClick(View v){
         if (v.getId() == R.id.button23) {
@@ -66,7 +66,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        goBackBoard();
+       // goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6);
         buttonGoBoard = (Button)findViewById(R.id.button23);
