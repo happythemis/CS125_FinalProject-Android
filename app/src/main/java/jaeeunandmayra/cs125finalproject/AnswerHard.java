@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class AnswerHard extends AppCompatActivity {
 
-
     TextView viewAnswerHard, viewScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
