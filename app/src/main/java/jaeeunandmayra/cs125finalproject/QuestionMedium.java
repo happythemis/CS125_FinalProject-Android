@@ -19,10 +19,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class QuestionMedium extends AppCompatActivity {
 
     Button buttonGoMain;
+    Button option1, option2, option3, option4;
     TextView viewQuestionMed;
+    String[] answerArray = new String[4];
     public void goBackBoard() {
         buttonGoMain = findViewById(R.id.buttonMed23);
         buttonGoMain.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +51,10 @@ public class QuestionMedium extends AppCompatActivity {
         goBackBoard();
 
         viewQuestionMed = findViewById(R.id.textViewMed6);
+        option1 = (Button)findViewById(R.id.buttonMed20);
+        option2 = (Button)findViewById(R.id.buttonMed21);
+        option3 = (Button)findViewById(R.id.buttonMed22);
+        option4 = (Button)findViewById(R.id.buttonMed25);
 
 
 
@@ -53,7 +62,7 @@ public class QuestionMedium extends AppCompatActivity {
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        // RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
@@ -62,14 +71,46 @@ public class QuestionMedium extends AppCompatActivity {
                     //JSONObject main = response.getJSONObject("question");
                     JSONArray arr = response.getJSONArray("results");
                     JSONObject obj = arr.getJSONObject(0);
-                    String question = obj.getString("question");
+                    String questionWOEdit = obj.getString("question");
+                    String questionApt1 = questionWOEdit.replaceAll("&rsquo;", "'");
+                    String questionApt2 = questionApt1.replaceAll("&#039;", "'");
+                    String questionQuote = questionApt2.replaceAll("&quot;", "'");
+                    String questionAnd = questionQuote.replaceAll("&amp", "&");
 
-                    viewQuestionMed.setText(question);
 
 
+                    viewQuestionMed.setText(questionAnd);
 
+                    String correctAnswer = obj.getString("correct_answer");
+                    answerArray[0] = correctAnswer;
 
+                    JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
+                    for (int i = 0; i < incorrectAnswers.length(); i++) {
+                        answerArray[i + 1] = incorrectAnswers.getString(i);
+                    }
+                    List<String> listOfAnswer = new LinkedList<>();
+                    for (int i = 0; i < answerArray.length; i++) {
+                        listOfAnswer.add(answerArray[i]);
+                    }
+                    List<Integer> listofNum = new LinkedList<>();
+                    int cnt = 0;
 
+                    int randomize = (int) (Math.random() * listOfAnswer.size());
+                    listofNum.add(randomize);
+                    cnt++;
+
+                    while (cnt < 4) {
+                        randomize = (int) (Math.random() * listOfAnswer.size());
+                        if (!listofNum.contains(randomize)) {
+                            listofNum.add(randomize);
+                            cnt++;
+                        }
+                    }
+
+                    option1.setText(answerArray[listofNum.get(0)]);
+                    option2.setText(answerArray[listofNum.get(1)]);
+                    option3.setText(answerArray[listofNum.get(2)]);
+                    option4.setText(answerArray[listofNum.get(3)]);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -84,7 +125,6 @@ public class QuestionMedium extends AppCompatActivity {
             }
         }
         );
-
 
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);

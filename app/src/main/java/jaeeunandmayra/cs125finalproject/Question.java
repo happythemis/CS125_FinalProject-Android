@@ -66,7 +66,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        //goBackBoard();
+        goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6);
         buttonGoBoard = (Button)findViewById(R.id.button23);
@@ -79,7 +79,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
-       // RequestQueue requestQueue = Volley.newRequestQueue(this);
+        // RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
