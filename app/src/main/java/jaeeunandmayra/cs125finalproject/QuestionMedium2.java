@@ -41,6 +41,7 @@ public class QuestionMedium2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_medium2);
+        goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6med);
 
