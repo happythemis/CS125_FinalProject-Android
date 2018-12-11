@@ -26,8 +26,6 @@ public class Answer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
-
-
         viewAnswer = findViewById(R.id.textView5);
 
         String answer = Question.correctAnswer;

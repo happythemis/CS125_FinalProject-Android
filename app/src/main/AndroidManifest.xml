@@ -24,12 +24,10 @@
         <activity android:name=".Answer" />
         <activity android:name=".QuestionMedium" />
         <activity android:name=".QuestionHard" />
-        <activity android:name=".QuestionMedium2" />
         <activity android:name=".linkedQuestion" />
         <activity android:name=".linkedBoard" />
         <activity android:name=".LinkedQuestion" />
         <activity android:name=".AnswerMedium" />
-        <activity android:name=".AnswerMedium2" />
         <activity android:name=".AnswerHard"></activity>
     </application>
 
