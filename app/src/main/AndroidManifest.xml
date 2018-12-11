@@ -27,7 +27,7 @@
         <activity android:name=".QuestionMedium2" />
         <activity android:name=".linkedQuestion" />
         <activity android:name=".linkedBoard" />
-        <activity android:name=".LinkedQuestion"></activity>
+        <activity android:name=".LinkedQuestion" />
     </application>
 
 </manifest>
