@@ -24,7 +24,7 @@ public class QuestionHard extends AppCompatActivity {
     Button buttonGoMain;
     TextView viewQuestionHard;
     public void goBackBoard() {
-        buttonGoMain = findViewById(R.id.button23);
+        buttonGoMain = findViewById(R.id.buttonhard23);
         buttonGoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

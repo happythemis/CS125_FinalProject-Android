@@ -20,8 +20,10 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         } else if (v.getId() == R.id.button2 || v.getId() == R.id.button5 || v.getId() == R.id.button6 || v.getId() == R.id.button7) {
             Intent goQuestionHard = new Intent(Board.this, QuestionHard.class);
             startActivity(goQuestionHard);
-        } else if (v.getId() == R.id.button8 || v.getId() == R.id.button9 || v.getId() == R.id.button10 || v.getId() == R.id.button11
-                || v.getId() == R.id.button12 || v.getId() == R.id.button13 || v.getId() == R.id.button14 || v.getId() == R.id.button15) {
+        } else if (v.getId() == R.id.button8 || v.getId() == R.id.button9 || v.getId() == R.id.button10 || v.getId() == R.id.button11){
+            Intent goQuestionMed = new Intent(Board.this, QuestionMedium2.class);
+            startActivity(goQuestionMed);
+        } else if (v.getId() == R.id.button12 || v.getId() == R.id.button13 || v.getId() == R.id.button14 || v.getId() == R.id.button15) {
             Intent goQuestionMed = new Intent(Board.this, QuestionMedium.class);
             startActivity(goQuestionMed);
         } else if (v.getId() == R.id.button16 || v.getId() == R.id.button17 || v.getId() == R.id.button18 || v.getId() == R.id.button19) {

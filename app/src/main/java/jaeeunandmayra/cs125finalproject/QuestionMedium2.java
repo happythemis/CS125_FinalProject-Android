@@ -19,16 +19,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class QuestionMedium extends AppCompatActivity {
+public class QuestionMedium2 extends AppCompatActivity {
+
 
     Button buttonGoMain;
-    TextView viewQuestionMed;
+    TextView viewQuestion;
     public void goBackBoard() {
-        buttonGoMain = findViewById(R.id.buttonMed23);
+        buttonGoMain = findViewById(R.id.button23med);
         buttonGoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goBack = new Intent(QuestionMedium.this, Board.class);
+                Intent goBack = new Intent(QuestionMedium2.this, Board.class);
                 startActivity(goBack);
             }
         });
@@ -39,21 +40,17 @@ public class QuestionMedium extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_medium);
+        setContentView(R.layout.activity_question_medium2);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
-        goBackBoard();
-
-        viewQuestionMed = findViewById(R.id.textViewMed6);
+        viewQuestion = findViewById(R.id.textView6med);
 
 
 
 
 
-        String URL = "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
+        String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        // RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
@@ -64,7 +61,7 @@ public class QuestionMedium extends AppCompatActivity {
                     JSONObject obj = arr.getJSONObject(0);
                     String question = obj.getString("question");
 
-                    viewQuestionMed.setText(question);
+                    viewQuestion.setText(question);
 
 
 
@@ -90,4 +87,5 @@ public class QuestionMedium extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(objectRequest);
     }
+
 }
