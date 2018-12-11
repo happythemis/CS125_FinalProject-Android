@@ -24,6 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Question extends AppCompatActivity implements View.OnClickListener {
+    public boolean right = false;
 
     Button buttonGoBoard;
     Button option1, option2, option3, option4;
@@ -86,7 +87,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         option2 = (Button)findViewById(R.id.button21);
         option3 = (Button)findViewById(R.id.button22);
         option4 = (Button)findViewById(R.id.button25);
-
 
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
@@ -158,11 +158,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             }
         }
         );
-
-
-
-
-
 
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
