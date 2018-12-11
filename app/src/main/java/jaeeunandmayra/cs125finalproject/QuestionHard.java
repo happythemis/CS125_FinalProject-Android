@@ -33,6 +33,11 @@ public class QuestionHard extends AppCompatActivity {
             }
         });
 
+        goBackBoard();
+
+        viewQuestionHard = findViewById(R.id.textViewhard6);
+
+
 
     }
 
@@ -40,11 +45,6 @@ public class QuestionHard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_hard);
-
-        goBackBoard();
-
-        viewQuestionHard = findViewById(R.id.textViewhard6);
-
 
 
 

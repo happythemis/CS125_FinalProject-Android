@@ -19,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,27 +42,32 @@ public class Question extends AppCompatActivity {
 
     }
 
-    public void onClick(View v){
-        if (v.getId() == R.id.button23) {
-            Intent goBack = new Intent(Question.this, MainActivity.class);
-            startActivity(goBack);
-        } else if (v.getId() == R.id.button2 || v.getId() == R.id.button5 || v.getId() == R.id.button6 || v.getId() == R.id.button7) {
-            Intent goQuestionHard = new Intent(Question.this, QuestionHard.class);
-            startActivity(goQuestionHard);
-        }
-
-    }
+//    public void onClick(View v){
+//        if (v.getId() == R.id.button23) {
+//            Intent goBackBoard = new Intent(Question.this, Board.class);
+//            startActivity(goBackBoard);
+//        } else if (v.getId() == R.id.button25) {
+//            Intent goQuestion = new Intent(Question.this, Board.class);
+//            startActivity(goQuestion);
+//        }
+//
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        goBackBoard();
+        //goBackBoard();
 
         viewQuestion = findViewById(R.id.textView6);
         option1 = (Button)findViewById(R.id.button20);
         option2 = (Button)findViewById(R.id.button21);
         option3 = (Button)findViewById(R.id.button22);
         option4 = (Button)findViewById(R.id.button25);
+
+//        option1.setOnClickListener(this);
+//        option2.setOnClickListener(this);
+//        option3.setOnClickListener(this);
+//        option4.setOnClickListener(this);
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
@@ -91,43 +97,29 @@ public class Question extends AppCompatActivity {
                     for (int i = 0; i < incorrectAnswers.length(); i++) {
                         answerArray[i + 1] = incorrectAnswers.getString(i);
                     }
-//                    List<String> listOfAnswer = new LinkedList<>();
-//                    for (int i = 0; i < answerArray.length; i++) {
-//                        listOfAnswer.add(answerArray[i]);
-//                    }
-//
-//
-//                    int a;
-//
-//                    int randomize = (int) (Math.random() * (listOfAnswer.size() - 1) + 1;
-//                    while (randomize != 0) {
-//
-//                        randomize = (int) (Math.random() * listOfAnswer.size());
-//
-//                    }
-//
-//                    // while ()
+                    List<String> listOfAnswer = new LinkedList<>();
+                    for (int i = 0; i < answerArray.length; i++) {
+                        listOfAnswer.add(answerArray[i]);
+                    }
+                    List<Integer> listofNum = new LinkedList<>();
+                    int cnt = 0;
 
+                    int randomize = (int) (Math.random() * listOfAnswer.size());
+                    listofNum.add(randomize);
+                    cnt++;
 
+                    while (cnt < 4) {
+                        randomize = (int) (Math.random() * listOfAnswer.size());
+                        if (!listofNum.contains(randomize)) {
+                            listofNum.add(randomize);
+                            cnt++;
+                        }
+                    }
 
-
-                    option1.setText(answerArray[0]);
-                    option2.setText(answerArray[1]);
-                    option3.setText(answerArray[2]);
-                    option4.setText(answerArray[3]);
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    option1.setText(answerArray[listofNum.get(0)]);
+                    option2.setText(answerArray[listofNum.get(1)]);
+                    option3.setText(answerArray[listofNum.get(2)]);
+                    option4.setText(answerArray[listofNum.get(3)]);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -144,14 +136,13 @@ public class Question extends AppCompatActivity {
         );
 
 //
-//        option1.setOnClickListener(this);
-//        option2.setOnClickListener(this);
-//        option3.setOnClickListener(this);
-//        option4.setOnClickListener(this);
+
+
 
 
         //requestQueue.add(objectRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
+
         queue.add(objectRequest);
     }
 }
