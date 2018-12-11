@@ -53,36 +53,24 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                 Board.score += 100;
             }
             Intent goQuestion = new Intent(Question.this, Answer.class);
-            if (option1.getText().equals(answerArray[0])) {
-                right = true;
-            }
             startActivity(goQuestion);
         } else if (v.getId() == R.id.button21) {
             if (option2.getText().equals(correctAnswer)) {
                 Board.score += 100;
             }
             Intent goQuestion = new Intent(Question.this, Answer.class);
-            if (option1.getText().equals(answerArray[0])) {
-                right = true;
-            }
             startActivity(goQuestion);
         } else if (v.getId() == R.id.button22) {
             if (option3.getText().equals(correctAnswer)) {
                 Board.score += 100;
             }
             Intent goQuestion = new Intent(Question.this, Answer.class);
-            if (option1.getText().equals(answerArray[0])) {
-                right = true;
-            }
             startActivity(goQuestion);
         } else if (v.getId() == R.id.button25) {
             if (option4.getText().equals(correctAnswer)) {
                 Board.score += 100;
             }
             Intent goQuestion = new Intent(Question.this, Answer.class);
-            if (option1.getText().equals(answerArray[0])) {
-                right = true;
-            }
             startActivity(goQuestion);
         }
 
@@ -99,11 +87,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         option2 = (Button)findViewById(R.id.button21);
         option3 = (Button)findViewById(R.id.button22);
         option4 = (Button)findViewById(R.id.button25);
-
-        if (right) {
-            MainActivity.scoring += 100;
-        }
-
 
 
         String URL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";

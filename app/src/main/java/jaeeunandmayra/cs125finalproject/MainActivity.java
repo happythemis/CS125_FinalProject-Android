@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         buttonStart = (Button)findViewById(R.id.button3);
         buttonHelp = (Button)findViewById(R.id.button4);
         score = findViewById(R.id.textView3);
-        int scoring = 0;
+        String currScore = Integer.toString(Board.score);
+        score.setText(currScore);
 
 
         buttonHelp.setOnClickListener(this);
         buttonStart.setOnClickListener(this);
-        score.setText(scoring);
         }
 
 
@@ -60,6 +60,3 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
 
     }
-
-
-}
