@@ -34,15 +34,27 @@ public class QuestionInterm extends AppCompatActivity implements View.OnClickLis
             Intent goBackBoard = new Intent(QuestionInterm.this, Board.class);
             startActivity(goBackBoard);
         } else if (v.getId() == R.id.buttonMed20) {
+            if (option2.getText().equals(correctAnswer)) {
+                Board.score += 300;
+            }
             Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
             startActivity(goBackBoard);
         } else if (v.getId() == R.id.buttonMed21) {
+            if (option2.getText().equals(correctAnswer)) {
+                Board.score += 300;
+            }
             Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
             startActivity(goBackBoard);
         } else if (v.getId() == R.id.buttonMed22) {
+            if (option2.getText().equals(correctAnswer)) {
+                Board.score += 300;
+            }
             Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
             startActivity(goBackBoard);
         } else if (v.getId() == R.id.buttonMed25) {
+            if (option2.getText().equals(correctAnswer)) {
+                Board.score += 300;
+            }
             Intent goBackBoard = new Intent(QuestionInterm.this, AnswerMedium.class);
             startActivity(goBackBoard);
         }

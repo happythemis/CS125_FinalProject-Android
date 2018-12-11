@@ -7,26 +7,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class AnswerMedium extends AppCompatActivity {
+public class AnswerInterm extends AppCompatActivity {
 
-    TextView viewAnswerMed, viewScore;
+    TextView viewAnswerInterm, viewScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer_medium);
-        viewAnswerMed = findViewById(R.id.textView5);
+        setContentView(R.layout.activity_answer_interm);
+        viewAnswerInterm = findViewById(R.id.textView5);
         viewScore = findViewById(R.id.textView8);
 
-        String answer = QuestionMedium.correctAnswer;
-        viewAnswerMed.setText(answer);
+
+        String answer = QuestionInterm.correctAnswer;
+        viewAnswerInterm.setText(answer);
 
 
         String currScore = Integer.toString(Board.score);
         viewScore.setText(currScore);
         goBackBoard();
-
-
     }
+
 
     public Button button1;
     public void goBackBoard() {
@@ -34,7 +34,7 @@ public class AnswerMedium extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goBack = new Intent(AnswerMedium.this, Board.class);
+                Intent goBack = new Intent(AnswerInterm.this, Board.class);
                 startActivity(goBack);
             }
         });
