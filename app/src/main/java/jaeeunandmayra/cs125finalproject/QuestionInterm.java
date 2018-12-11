@@ -92,14 +92,16 @@ public class QuestionInterm extends AppCompatActivity implements View.OnClickLis
                     String questionApt2 = questionApt1.replaceAll("&#039;", "'");
                     String questionQuote = questionApt2.replaceAll("&quot;", "'");
                     String questionAnd = questionQuote.replaceAll("&amp", "&");
-                    viewQuestion.setText(questionAnd);
+                    String questionE= questionAnd.replaceAll("&eacute;", "é");
+                    viewQuestion.setText(questionE);
 
 
                     String answerWOEdit = obj.getString("correct_answer");
                     String answerApt1 = answerWOEdit.replaceAll("&rsquo;", "'");
                     String answerApt2 = answerApt1.replaceAll("&#039;", "'");
                     String answerQuote = answerApt2.replaceAll("&quot;", "'");
-                    correctAnswer = answerQuote.replaceAll("&amp", "&");
+                    String answerE= answerQuote.replaceAll("&eacute;", "é");
+                    correctAnswer = answerE.replaceAll("&amp", "&");
                     answerArray[0] = correctAnswer;
 
                     JSONArray incorrectAnswers = obj.getJSONArray("incorrect_answers");
